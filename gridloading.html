@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+  </head>
+  <style>
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /* 注册全局使用的变量 */
+    :root {
+      --w: 180px;
+      --gap: 10px;
+    }
+
+    .container {
+      width: calc(var(--w) * 3 + var(--gap) * 2);
+      height: calc(var(--w) * 3 + var(--gap) * 2);
+      display: grid;
+      grid-template-columns: repeat(3, var(--w));
+      grid-template-rows: repeat(3, var(--w));
+      gap: var(--gap);
+      place-content: center;
+      transition: all 0.3s;
+    }
+
+    .item {
+      width: var(--w);
+      height: var(--w);
+      border: 1px solid;
+      border-image: linear-gradient(45deg, #293a53, #7cb1c5) 1;
+      background-size: calc(var(--w) * 3) calc(var(--w) * 3);
+      background-image: url("./Overwatch.JPG");
+      background-position: calc(var(--x) * 100%) calc(var(--y) * 100%);
+    }
+    
+    .container:hover {
+      filter: drop-shadow(0px 0px 20px #000);
+      gap: 0;
+    }
+    .container:hover .item {
+      border: none;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="item" style="--x: 0; --y: 0"></div>
+      <div class="item" style="--x: -1; --y: 0"></div>
+      <div class="item" style="--x: -2; --y: 0"></div>
+      <div class="item" style="--x: 0; --y: -1"></div>
+      <div class="item" style="--x: -1; --y: -1"></div>
+      <div class="item" style="--x: -2; --y: -1"></div>
+      <div class="item" style="--x: 0; --y: -2"></div>
+      <div class="item" style="--x: -1; --y: -2"></div>
+      <div class="item" style="--x: -2; --y: -2"></div>
+    </div>
+  </body>
+</html>
